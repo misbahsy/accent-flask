@@ -9,6 +9,7 @@ import accuracy
 from trainmodel import get_wav, to_mfcc, create_segmented_mfccs, segment_one
 from tensorflow import keras
 from gcp_predict import final_prediction
+import os
 
 app = Flask(__name__)
 model = keras.models.load_model('./baseline_english.h5.h5')
@@ -93,4 +94,5 @@ def test():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    server_port = os.environ.get('PORT', '8080')
+    app.run(debug=True, port=server_port, host='0.0.0.0')
