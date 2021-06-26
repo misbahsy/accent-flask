@@ -1,8 +1,12 @@
 # Python image to use.
-FROM python:3.6-slim-buster
+FROM python:3.9
 
 #upgrade pip
 RUN python -m pip install --upgrade pip
+
+RUN apt-get update && apt-get install -y libsndfile1
+RUN apt-get install -y libsndfile1-dev
+
 
 # copy the requirements file used for dependencies
 COPY requirements.txt .
