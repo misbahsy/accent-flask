@@ -94,5 +94,6 @@ def test():
 
 
 if __name__ == "__main__":
-    server_port = os.environ.get('PORT', '8080')
-    app.run(debug=True, port=server_port, host='0.0.0.0')
+    # server_port = os.environ.get('PORT', '8080')
+    # app.run(debug=True, port=server_port, host='0.0.0.0')
+    app.run( debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', '8080')) )
