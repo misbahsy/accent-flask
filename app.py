@@ -43,7 +43,7 @@ def cloud_predict():
     segmented_mfcc = segment_one(mfcc)
     MFCCs = segmented_mfcc.reshape(segmented_mfcc.shape[0],segmented_mfcc.shape[1],segmented_mfcc.shape[2],1)
     y_predicted = final_prediction(MFCCs=MFCCs)
-    return render_template('index.html', prediction_text='Accent: {}'.format(keys_list[y_predicted[0]-1]))
+    return render_template('index.html', prediction_text='Accent: {}'.format(keys_list[y_predicted[0]]))
 
 @app.route('/predict-recording', methods=['GET','POST'])
 def predict_recording():
